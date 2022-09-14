@@ -73,6 +73,7 @@ crashlytics-build.properties
 
 # User-specific stuff
 .idea/**/workspace.xml
+.idea/**/projectSettingsUpdater.xml
 .idea/**/tasks.xml
 .idea/**/usage.statistics.xml
 .idea/**/dictionaries
