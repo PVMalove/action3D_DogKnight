@@ -7,14 +7,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1883563673, guid: 45288819fde2143449a96207b14db0bb, type: 3}
-      propertyPath: m_Radius
-      value: 0.8
-      objectReference: {fileID: 0}
-    - target: {fileID: 1883563676, guid: 45288819fde2143449a96207b14db0bb, type: 3}
-      propertyPath: _movementSpeed
-      value: 3.5
-      objectReference: {fileID: 0}
     - target: {fileID: 2066896392038131574, guid: 45288819fde2143449a96207b14db0bb, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -63,23 +55,5 @@ PrefabInstance:
       propertyPath: m_Name
       value: DogHero
       objectReference: {fileID: 0}
-    - target: {fileID: 7078774259211694203, guid: 45288819fde2143449a96207b14db0bb, type: 3}
-      propertyPath: Animator
-      value: 
-      objectReference: {fileID: 3891851328345008152}
-    - target: {fileID: 7078774259211694203, guid: 45288819fde2143449a96207b14db0bb, type: 3}
-      propertyPath: CharacterController
-      value: 
-      objectReference: {fileID: 3075313651499451947}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 45288819fde2143449a96207b14db0bb, type: 3}
---- !u!143 &3075313651499451947 stripped
-CharacterController:
-  m_CorrespondingSourceObject: {fileID: 1883563673, guid: 45288819fde2143449a96207b14db0bb, type: 3}
-  m_PrefabInstance: {fileID: 3075313650161688754}
-  m_PrefabAsset: {fileID: 0}
---- !u!95 &3891851328345008152 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 2066896392029128874, guid: 45288819fde2143449a96207b14db0bb, type: 3}
-  m_PrefabInstance: {fileID: 3075313650161688754}
-  m_PrefabAsset: {fileID: 0}
