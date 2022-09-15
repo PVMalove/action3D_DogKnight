@@ -7,9 +7,13 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1883563673, guid: 45288819fde2143449a96207b14db0bb, type: 3}
+      propertyPath: m_Radius
+      value: 0.8
+      objectReference: {fileID: 0}
     - target: {fileID: 1883563676, guid: 45288819fde2143449a96207b14db0bb, type: 3}
       propertyPath: _movementSpeed
-      value: 2.5
+      value: 3.5
       objectReference: {fileID: 0}
     - target: {fileID: 2066896392038131574, guid: 45288819fde2143449a96207b14db0bb, type: 3}
       propertyPath: m_RootOrder
@@ -57,7 +61,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2066896392038628118, guid: 45288819fde2143449a96207b14db0bb, type: 3}
       propertyPath: m_Name
-      value: DogPolyart Variant
+      value: DogHero
       objectReference: {fileID: 0}
     - target: {fileID: 7078774259211694203, guid: 45288819fde2143449a96207b14db0bb, type: 3}
       propertyPath: Animator
