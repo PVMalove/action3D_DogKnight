@@ -99,5 +99,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _following: {fileID: 0}
   _rotationAngleX: 60
-  _distance: -7
+  _rotationAngleY: -90
+  _distance: -12
   _offsetY: 1
