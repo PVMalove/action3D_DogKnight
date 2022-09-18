@@ -1,4 +1,6 @@
-﻿namespace SimpleInputNamespace
+﻿using Plugins.SimpleInput.Scripts.Core;
+
+namespace Plugins.SimpleInput.Scripts.MouseButtonInputs
 {
 	public class MouseButtonInputSwipeGesture : SwipeGestureBase<int, bool>
 	{

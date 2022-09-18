@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-namespace SimpleInputNamespace
+namespace Plugins.SimpleInput.Scripts.Core
 {
 	[DisallowMultipleComponent]
 	[RequireComponent( typeof( RectTransform ) )]

@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-namespace SimpleInputNamespace
+namespace Plugins.SimpleInput.Scripts.Core
 {
 	public class UnityInputProvider : MonoBehaviour
 	{

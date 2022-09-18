@@ -1,8 +1,8 @@
 ﻿using UnityEditor;
 
-namespace SimpleInputNamespace
+namespace Plugins.SimpleInput.Editor
 {
-	[CustomPropertyDrawer( typeof( SimpleInput.MouseButtonInput ) )]
+	[CustomPropertyDrawer( typeof( Scripts.SimpleInput.MouseButtonInput ) )]
 	public class MouseButtonInputDrawer : BaseInputDrawer
 	{
 		public override string ValueToString( SerializedProperty valueProperty )

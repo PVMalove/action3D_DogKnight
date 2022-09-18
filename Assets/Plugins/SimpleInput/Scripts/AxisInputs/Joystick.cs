@@ -1,8 +1,9 @@
-﻿using UnityEngine;
+﻿using Plugins.SimpleInput.Scripts.Core;
+using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-namespace SimpleInputNamespace
+namespace Plugins.SimpleInput.Scripts.AxisInputs
 {
 	public class Joystick : MonoBehaviour, ISimpleInputDraggable
 	{

@@ -1,8 +1,9 @@
 ﻿using System.Collections.Generic;
+using Plugins.SimpleInput.Scripts.Core;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-namespace SimpleInputNamespace
+namespace Plugins.SimpleInput.Scripts.AxisInputs
 {
 	[RequireComponent( typeof( SimpleInputMultiDragListener ) )]
 	public class AxisInputRotateGesture : MonoBehaviour, ISimpleInputDraggableMultiTouch

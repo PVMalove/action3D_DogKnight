@@ -1,7 +1,7 @@
 ﻿using UnityEditor;
 using UnityEngine;
 
-namespace SimpleInputNamespace
+namespace Plugins.SimpleInput.Editor
 {
 	public abstract class BaseInputDrawer : PropertyDrawer
 	{

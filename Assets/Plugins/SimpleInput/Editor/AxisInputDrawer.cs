@@ -1,8 +1,8 @@
 ﻿using UnityEditor;
 
-namespace SimpleInputNamespace
+namespace Plugins.SimpleInput.Editor
 {
-	[CustomPropertyDrawer( typeof( SimpleInput.AxisInput ) )]
+	[CustomPropertyDrawer( typeof( Scripts.SimpleInput.AxisInput ) )]
 	public class AxisInputDrawer : BaseInputDrawer
 	{
 		public override string ValueToString( SerializedProperty valueProperty )

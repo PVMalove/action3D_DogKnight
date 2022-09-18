@@ -1,4 +1,6 @@
-﻿namespace SimpleInputNamespace
+﻿using Plugins.SimpleInput.Scripts.Core;
+
+namespace Plugins.SimpleInput.Scripts.AxisInputs
 {
 	public class AxisInputSwipeGesture : SwipeGestureBase<string, float>
 	{

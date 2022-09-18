@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace SimpleInputNamespace
+namespace Plugins.SimpleInput.Scripts.Core
 {
 	public interface IBaseInput
 	{

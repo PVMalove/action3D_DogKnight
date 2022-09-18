@@ -1,8 +1,9 @@
-﻿using UnityEngine;
-using UnityEngine.UI;
+﻿using Plugins.SimpleInput.Scripts.Core;
+using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
-namespace SimpleInputNamespace
+namespace Plugins.SimpleInput.Scripts.AxisInputs
 {
 	public class SteeringWheel : MonoBehaviour, ISimpleInputDraggable
 	{

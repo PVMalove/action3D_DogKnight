@@ -1,8 +1,8 @@
 ﻿using UnityEditor;
 
-namespace SimpleInputNamespace
+namespace Plugins.SimpleInput.Editor
 {
-	[CustomPropertyDrawer( typeof( SimpleInput.KeyInput ) )]
+	[CustomPropertyDrawer( typeof( Scripts.SimpleInput.KeyInput ) )]
 	public class KeyInputDrawer : BaseInputDrawer
 	{
 		public override string ValueToString( SerializedProperty valueProperty )

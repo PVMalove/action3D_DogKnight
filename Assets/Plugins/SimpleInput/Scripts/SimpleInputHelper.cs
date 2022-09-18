@@ -1,73 +1,76 @@
 ﻿using UnityEngine;
 
-public static class SimpleInputHelper
+namespace Plugins.SimpleInput.Scripts
 {
-	private class ButtonClickInput : SimpleInput.ButtonInput
+	public static class SimpleInputHelper
 	{
-		public ButtonClickInput( string key ) : base( key ) { }
-
-		public void OnUpdate()
+		private class ButtonClickInput : SimpleInput.ButtonInput
 		{
-			if( !value )
-				value = true;
-			else
+			public ButtonClickInput( string key ) : base( key ) { }
+
+			public void OnUpdate()
 			{
-				StopTracking();
-				SimpleInput.OnUpdate -= OnUpdate;
+				if( !value )
+					value = true;
+				else
+				{
+					StopTracking();
+					SimpleInput.OnUpdate -= OnUpdate;
+				}
 			}
 		}
-	}
 
-	private class MouseButtonClickInput : SimpleInput.MouseButtonInput
-	{
-		public MouseButtonClickInput( int key ) : base( key ) { }
-
-		public void OnUpdate()
+		private class MouseButtonClickInput : SimpleInput.MouseButtonInput
 		{
-			if( !value )
-				value = true;
-			else
+			public MouseButtonClickInput( int key ) : base( key ) { }
+
+			public void OnUpdate()
 			{
-				StopTracking();
-				SimpleInput.OnUpdate -= OnUpdate;
+				if( !value )
+					value = true;
+				else
+				{
+					StopTracking();
+					SimpleInput.OnUpdate -= OnUpdate;
+				}
 			}
 		}
-	}
 
-	private class KeyClickInput : SimpleInput.KeyInput
-	{
-		public KeyClickInput( KeyCode key ) : base( key ) { }
-
-		public void OnUpdate()
+		private class KeyClickInput : SimpleInput.KeyInput
 		{
-			if( !value )
-				value = true;
-			else
+			public KeyClickInput( KeyCode key ) : base( key ) { }
+
+			public void OnUpdate()
 			{
-				StopTracking();
-				SimpleInput.OnUpdate -= OnUpdate;
+				if( !value )
+					value = true;
+				else
+				{
+					StopTracking();
+					SimpleInput.OnUpdate -= OnUpdate;
+				}
 			}
 		}
-	}
 
-	public static void TriggerButtonClick( string button )
-	{
-		ButtonClickInput buttonClick = new ButtonClickInput( button );
-		buttonClick.StartTracking();
-		SimpleInput.OnUpdate += buttonClick.OnUpdate;
-	}
+		public static void TriggerButtonClick( string button )
+		{
+			ButtonClickInput buttonClick = new ButtonClickInput( button );
+			buttonClick.StartTracking();
+			SimpleInput.OnUpdate += buttonClick.OnUpdate;
+		}
 
-	public static void TriggerMouseButtonClick( int button )
-	{
-		MouseButtonClickInput mouseButtonClick = new MouseButtonClickInput( button );
-		mouseButtonClick.StartTracking();
-		SimpleInput.OnUpdate += mouseButtonClick.OnUpdate;
-	}
+		public static void TriggerMouseButtonClick( int button )
+		{
+			MouseButtonClickInput mouseButtonClick = new MouseButtonClickInput( button );
+			mouseButtonClick.StartTracking();
+			SimpleInput.OnUpdate += mouseButtonClick.OnUpdate;
+		}
 
-	public static void TriggerKeyClick( KeyCode key )
-	{
-		KeyClickInput keyClick = new KeyClickInput( key );
-		keyClick.StartTracking();
-		SimpleInput.OnUpdate += keyClick.OnUpdate;
+		public static void TriggerKeyClick( KeyCode key )
+		{
+			KeyClickInput keyClick = new KeyClickInput( key );
+			keyClick.StartTracking();
+			SimpleInput.OnUpdate += keyClick.OnUpdate;
+		}
 	}
 }

@@ -9,12 +9,15 @@ namespace CodeBase.Conditions.Door
         [SerializeField] private List<Condition> _satisfiedConditions;
         [SerializeField] private List<Condition> _unsatisfiedConditions;
         [SerializeField] private List<Reaction> _reactions;
+        [SerializeField] private Light _light;
 
         protected override void OnTriggerEnterWithTag(Collider other)
         {
+            _light.color = new Color32(14,118,15,229);
+            
             foreach (var condition in _satisfiedConditions)
             {
-                if(!condition.IsSatisfied) 
+                if (!condition.IsSatisfied)
                     return;
             }
 

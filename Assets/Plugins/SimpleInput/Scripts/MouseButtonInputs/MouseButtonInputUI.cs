@@ -2,7 +2,7 @@
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-namespace SimpleInputNamespace
+namespace Plugins.SimpleInput.Scripts.MouseButtonInputs
 {
 	public class MouseButtonInputUI : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 	{

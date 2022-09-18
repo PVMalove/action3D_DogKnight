@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace SimpleInputNamespace
+namespace Plugins.SimpleInput.Scripts.KeyInputs
 {
 	public class KeyInputKeyboard : MonoBehaviour
 	{

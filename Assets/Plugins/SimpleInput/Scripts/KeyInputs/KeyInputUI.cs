@@ -2,7 +2,7 @@
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-namespace SimpleInputNamespace
+namespace Plugins.SimpleInput.Scripts.KeyInputs
 {
 	public class KeyInputUI : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 	{

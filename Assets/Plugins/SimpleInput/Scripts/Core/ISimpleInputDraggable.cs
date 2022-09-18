@@ -1,6 +1,6 @@
 ﻿using UnityEngine.EventSystems;
 
-namespace SimpleInputNamespace
+namespace Plugins.SimpleInput.Scripts.Core
 {
 	public interface ISimpleInputDraggable
 	{

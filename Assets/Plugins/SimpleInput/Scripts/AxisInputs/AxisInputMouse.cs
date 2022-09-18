@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace SimpleInputNamespace
+namespace Plugins.SimpleInput.Scripts.AxisInputs
 {
 	public class AxisInputMouse : MonoBehaviour
 	{

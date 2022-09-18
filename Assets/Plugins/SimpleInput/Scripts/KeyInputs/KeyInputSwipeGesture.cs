@@ -1,6 +1,7 @@
-﻿using UnityEngine;
+﻿using Plugins.SimpleInput.Scripts.Core;
+using UnityEngine;
 
-namespace SimpleInputNamespace
+namespace Plugins.SimpleInput.Scripts.KeyInputs
 {
 	public class KeyInputSwipeGesture : SwipeGestureBase<KeyCode, bool>
 	{

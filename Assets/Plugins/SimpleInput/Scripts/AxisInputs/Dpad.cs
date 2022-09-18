@@ -1,7 +1,8 @@
-﻿using UnityEngine;
+﻿using Plugins.SimpleInput.Scripts.Core;
+using UnityEngine;
 using UnityEngine.EventSystems;
 
-namespace SimpleInputNamespace
+namespace Plugins.SimpleInput.Scripts.AxisInputs
 {
 	public class Dpad : MonoBehaviour, ISimpleInputDraggable
 	{
