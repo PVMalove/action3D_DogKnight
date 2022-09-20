@@ -13,16 +13,13 @@ namespace CodeBase.Hero
     {
         [SerializeField] private float _movementSpeed = 2.5f;
         [SerializeField] private CharacterController _characterController;
+        [SerializeField] private HeroAnimator _heroAnimator;
 
         private IInputService _input;
-        private HeroAnimator _heroAnimator;
 
         private void Awake()
         {
             _input = AllServices.Container.Single<IInputService>();
-
-            _characterController = GetComponent<CharacterController>();
-            _heroAnimator = GetComponent<HeroAnimator>();
         }
 
         private void Update()
