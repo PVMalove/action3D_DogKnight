@@ -1,4 +1,3 @@
-using System;
 using CodeBase.Infrastructure.Factory;
 using CodeBase.Infrastructure.Services;
 using UnityEngine;
@@ -6,7 +5,8 @@ using UnityEngine.AI;
 
 namespace CodeBase.Enemy
 {
-    public class AgentMoveToPlayer : MonoBehaviour
+    [RequireComponent(typeof(NavMeshAgent))]
+    public class AgentMoveToHero : Follow
     {
         private float _minimalDistance = 1f;
         
@@ -20,11 +20,14 @@ namespace CodeBase.Enemy
         {
             _gameFactory = AllServices.Container.Single<IGameFactory>();
 
-            if (_gameFactory.HeroGameObject != null)
+            if (HeroExists())
                 InitializeHeroTransform();
             else
                 _gameFactory.HeroCreated += HeroCreated;
         }
+
+        private bool HeroExists() => 
+            _gameFactory.HeroGameObject != null;
 
         private void Update()
         {
