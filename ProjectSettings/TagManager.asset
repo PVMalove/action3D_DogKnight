@@ -6,6 +6,7 @@ TagManager:
   tags:
   - StartingPoint
   - DogHero
+  - FxTemporaire
   layers:
   - Default
   - TransparentFX
@@ -21,8 +22,8 @@ TagManager:
   - 
   - Player
   - Aggro
-  - 
-  - 
+  - AttackZone
+  - Hittable
   - 
   - 
   - 

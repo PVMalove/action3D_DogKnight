@@ -29,7 +29,7 @@ namespace CodeBase.Infrastructure.Factory
         }
         
 
-        public void CreateHub() =>
+        public GameObject CreateHub() =>
             InstantiateRegistered(AsserPath.HudPath);
 
         public void Cleanup()

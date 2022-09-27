@@ -12,10 +12,10 @@ namespace CodeBase.Enemy
         private static readonly int Hit = Animator.StringToHash("Hit");
         private static readonly int Die = Animator.StringToHash("Die");
         
-        private readonly int _idleStateHash = Animator.StringToHash("idle");
-        private readonly int _attackStateHash = Animator.StringToHash("attack01");
-        private readonly int _walkingStateHash = Animator.StringToHash("Move");
-        private readonly int _deathStateHash = Animator.StringToHash("die");
+        private readonly int _idleStateHash = Animator.StringToHash("Idle");
+        private readonly int _attackStateHash = Animator.StringToHash("Attack01");
+        private readonly int _walkingStateHash = Animator.StringToHash("MoveEnemy");
+        private readonly int _deathStateHash = Animator.StringToHash("Die");
        
         private Animator _animatorEnemy;
 
@@ -35,9 +35,11 @@ namespace CodeBase.Enemy
             _animatorEnemy.SetFloat(Speed, speed);
         }
 
-        public void StopMoving() => _animatorEnemy.SetBool(IsMoving, false);
+        public void StopMoving() => 
+            _animatorEnemy.SetBool(IsMoving, false);
 
-        public void PlayAttack() => _animatorEnemy.SetTrigger(Attack);
+        public void PlayAttack() => 
+            _animatorEnemy.SetTrigger(Attack);
 
         public void EnteredState(int stateHash)
         {
