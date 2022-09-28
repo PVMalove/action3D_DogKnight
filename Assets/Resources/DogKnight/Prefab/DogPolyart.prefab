@@ -1267,6 +1267,7 @@ GameObject:
   - component: {fileID: 7047119947408674972}
   - component: {fileID: 6976080729273774725}
   - component: {fileID: 8791782773776135380}
+  - component: {fileID: 2592332778175956904}
   m_Layer: 12
   m_Name: DogPolyart
   m_TagString: DogHero
@@ -1416,6 +1417,21 @@ MonoBehaviour:
   _heroMove: {fileID: 1883563676}
   _animator: {fileID: 7078774259211694203}
   _deathFX: {fileID: 1280141305896002, guid: e473029e4c70ad543a6879b82a732f4f, type: 3}
+  _attack: {fileID: 2592332778175956904}
+--- !u!114 &2592332778175956904
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2066896392038628118}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0582fcb30144a3a8e1e3deab8430eb2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _animator: {fileID: 7078774259211694203}
+  _characterController: {fileID: 1883563673}
 --- !u!1 &2066896392038628120
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,13 +1,13 @@
 using System.Linq;
-using CodeBase.Hero;
 using CodeBase.Infrastructure.Factory;
 using CodeBase.Infrastructure.Services;
+using CodeBase.Logic;
 using UnityEngine;
 
 namespace CodeBase.Enemy
 {
     [RequireComponent(typeof(EnemyAnimator))]
-    public class Attack : MonoBehaviour
+    public class EnemyAttack : MonoBehaviour
     {
         [SerializeField] private EnemyAnimator _animator;
         
@@ -46,7 +46,7 @@ namespace CodeBase.Enemy
             if (Hit(out Collider hit))
             {
                 PhysicsDebug.DrawDebug(StartPoint(), _cleavage, 1.0f);
-                hit.transform.GetComponent<HeroHealth>().TakeDamage(_damage);
+                hit.transform.GetComponent<IHealth>().TakeDamage(_damage);
             }
         }
 

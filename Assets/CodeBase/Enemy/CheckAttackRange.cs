@@ -1,11 +1,10 @@
-using System;
 using UnityEngine;
 
 namespace CodeBase.Enemy
 {
     public class CheckAttackRange : MonoBehaviour
     {
-        [SerializeField] public Attack _attack;
+        [SerializeField] public EnemyAttack _attack;
         [SerializeField] public TriggerObserver _triggerObserver;
 
         private void Start()
