@@ -1,5 +1,3 @@
-using CodeBase.Infrastructure.Factory;
-using CodeBase.Infrastructure.Services;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -13,21 +11,9 @@ namespace CodeBase.Enemy
         [SerializeField] private NavMeshAgent _agent;
 
         private Transform _heroTransform;
-        private IGameFactory _gameFactory;
 
-
-        private void Start()
-        {
-            _gameFactory = AllServices.Container.Single<IGameFactory>();
-
-            if (HeroExists())
-                InitializeHeroTransform();
-            else
-                _gameFactory.HeroCreated += HeroCreated;
-        }
-
-        private bool HeroExists() => 
-            _gameFactory.HeroGameObject != null;
+        public void Construct(Transform heroTransform) =>
+            _heroTransform = heroTransform;
 
         private void Update()
         {
@@ -35,14 +21,8 @@ namespace CodeBase.Enemy
                 _agent.destination = _heroTransform.position;
         }
 
-        private void InitializeHeroTransform() => 
-            _heroTransform = _gameFactory.HeroGameObject.transform;
-
         private bool Initialized() => 
             _heroTransform != null;
-
-        private void HeroCreated() => 
-            InitializeHeroTransform();
 
         private bool IsHeroNotReached() => 
             Vector3.Distance(_agent.transform.position, _heroTransform.position) >= _minimalDistance;

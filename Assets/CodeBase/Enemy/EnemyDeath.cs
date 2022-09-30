@@ -10,6 +10,8 @@ namespace CodeBase.Enemy
         [SerializeField] private EnemyAnimator _animator;
         [SerializeField] private EnemyHealth _enemyHealth;
         [SerializeField] private GameObject DeathFX;
+        [SerializeField] private AgentMoveToHero _agentMove;
+        [SerializeField] private BoxCollider _boxCollider;
 
         public event Action Happend;
 
@@ -29,6 +31,8 @@ namespace CodeBase.Enemy
         {
             _enemyHealth.HealthChanged -= HealthChanged;
             _animator.PlayDeath();
+            _agentMove.enabled = false;
+            _boxCollider.enabled = false;
             SpawnDeathFX();
             StartCoroutine(DestroyTimer());
             Happend?.Invoke();

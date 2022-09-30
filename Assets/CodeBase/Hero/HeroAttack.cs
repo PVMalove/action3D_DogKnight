@@ -1,4 +1,3 @@
-using System;
 using CodeBase.Data;
 using CodeBase.Enemy;
 using CodeBase.Infrastructure.Services;
@@ -50,6 +49,6 @@ namespace CodeBase.Hero
             new Vector3(transform.position.x, _characterController.center.y / 2, transform.position.z);
 
         public void LoadProgress(PlayerProgress progress) =>
-            _stats = progress.HeroStats;
+            _stats = progress.Stats;
     }
 }
