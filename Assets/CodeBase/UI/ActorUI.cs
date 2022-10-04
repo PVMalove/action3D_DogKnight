@@ -1,4 +1,3 @@
-using CodeBase.Hero;
 using CodeBase.Logic;
 using UnityEngine;
 

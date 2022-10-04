@@ -11,19 +11,20 @@ namespace CodeBase.Enemy
         private static readonly int IsMoving = Animator.StringToHash("IsMoving");
         private static readonly int Hit = Animator.StringToHash("Hit");
         private static readonly int Die = Animator.StringToHash("Die");
-        
+
         private readonly int _idleStateHash = Animator.StringToHash("Idle");
         private readonly int _attackStateHash = Animator.StringToHash("Attack01");
         private readonly int _walkingStateHash = Animator.StringToHash("MoveEnemy");
         private readonly int _deathStateHash = Animator.StringToHash("Die");
-       
+
         private Animator _animatorEnemy;
 
         public event Action<AnimatorState> StateEntered;
         public event Action<AnimatorState> StateExited;
-        
+
         public AnimatorState State { get; private set; }
-        private void Awake() => 
+
+        private void Awake() =>
             _animatorEnemy = GetComponent<Animator>();
 
         public void PlayHit() => _animatorEnemy.SetTrigger(Hit);
@@ -35,10 +36,10 @@ namespace CodeBase.Enemy
             _animatorEnemy.SetFloat(Speed, speed);
         }
 
-        public void StopMoving() => 
+        public void StopMoving() =>
             _animatorEnemy.SetBool(IsMoving, false);
 
-        public void PlayAttack() => 
+        public void PlayAttack() =>
             _animatorEnemy.SetTrigger(Attack);
 
         public void EnteredState(int stateHash)
@@ -46,8 +47,8 @@ namespace CodeBase.Enemy
             State = StateFor(stateHash);
             StateEntered?.Invoke(State);
         }
-    
-        public void ExitedState(int stateHash) => 
+
+        public void ExitedState(int stateHash) =>
             StateExited?.Invoke(StateFor(stateHash));
 
         private AnimatorState StateFor(int stateHash)
@@ -63,7 +64,7 @@ namespace CodeBase.Enemy
                 state = AnimatorState.Died;
             else
                 state = AnimatorState.Unknown;
-      
+
             return state;
         }
     }

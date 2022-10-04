@@ -7,7 +7,7 @@ namespace CodeBase.Infrastructure
     public class GameBootstrapper : MonoBehaviour, ICoroutineRunner
     {
         [SerializeField] private LoadingCurtain _curtainPrefab;
-        
+
         private Game _game;
 
         private void Awake()
@@ -18,4 +18,4 @@ namespace CodeBase.Infrastructure
             DontDestroyOnLoad(this);
         }
     }
-} 
+}

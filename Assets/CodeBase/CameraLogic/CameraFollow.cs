@@ -5,7 +5,6 @@ namespace CodeBase.CameraLogic
     public class CameraFollow : MonoBehaviour
     {
         [SerializeField] private Transform _following;
-
         [SerializeField] private float _rotationAngleX;
         [SerializeField] private float _rotationAngleY;
         [SerializeField] private float _distance;
@@ -26,7 +25,7 @@ namespace CodeBase.CameraLogic
 
         public void Follow(GameObject following) =>
             _following = following.transform;
-        
+
         private Vector3 FollowingPointPosition()
         {
             Vector3 followingPosition = _following.position;

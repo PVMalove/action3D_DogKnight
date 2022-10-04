@@ -7,7 +7,7 @@ namespace CodeBase.Enemy
     public class AgentMoveToHero : Follow
     {
         private float _minimalDistance = 1f;
-        
+
         [SerializeField] private NavMeshAgent _agent;
 
         private Transform _heroTransform;
@@ -21,10 +21,10 @@ namespace CodeBase.Enemy
                 _agent.destination = _heroTransform.position;
         }
 
-        private bool Initialized() => 
+        private bool Initialized() =>
             _heroTransform != null;
 
-        private bool IsHeroNotReached() => 
+        private bool IsHeroNotReached() =>
             Vector3.Distance(_agent.transform.position, _heroTransform.position) >= _minimalDistance;
     }
 }

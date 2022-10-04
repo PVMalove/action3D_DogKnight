@@ -64,6 +64,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 7270106030078729944, guid: a213dd07cb7859943bc0eb87f4c08ef5, type: 3}
+      propertyPath: attackCooldown
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 7842282747204484690, guid: a213dd07cb7859943bc0eb87f4c08ef5, type: 3}
       propertyPath: m_Name
       value: Guardian

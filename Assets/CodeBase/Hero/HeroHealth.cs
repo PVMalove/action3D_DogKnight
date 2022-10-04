@@ -10,7 +10,7 @@ namespace CodeBase.Hero
     public class HeroHealth : MonoBehaviour, ISavedProgress, IHealth
     {
         [SerializeField] private HeroAnimator _animator;
-        
+
         private State _state;
 
         public event Action HealthChanged;
@@ -49,7 +49,7 @@ namespace CodeBase.Hero
 
         public void TakeDamage(float damage)
         {
-            if(Current <= 0)
+            if (Current <= 0)
                 return;
 
             Current -= damage;

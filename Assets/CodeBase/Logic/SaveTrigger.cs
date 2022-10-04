@@ -10,10 +10,8 @@ namespace CodeBase.Logic
 
         [SerializeField] private BoxCollider _collider;
 
-        private void Awake()
-        {
+        private void Awake() =>
             _saveLoadService = AllServices.Container.Single<ISaveLoadService>();
-        }
 
         private void OnTriggerEnter(Collider other)
         {
@@ -25,10 +23,10 @@ namespace CodeBase.Logic
 
         private void OnDrawGizmos()
         {
-            if(!_collider)
+            if (!_collider)
                 return;
-            
-            Gizmos.color = new Color32(14, 118, 15, 130) ;
+
+            Gizmos.color = new Color32(14, 118, 15, 130);
             Gizmos.DrawCube(transform.position + _collider.center, _collider.size);
         }
     }

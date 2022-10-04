@@ -8,7 +8,7 @@ namespace CodeBase.Enemy
     public class EnemyAttack : MonoBehaviour
     {
         [SerializeField] private EnemyAnimator _animator;
-        
+
         [SerializeField] private float attackCooldown = 3f;
         public float Cleavage = 0.5f;
         public float EffectiveDistance = 0.5f;
@@ -23,7 +23,7 @@ namespace CodeBase.Enemy
         private int _layerMask;
 
 
-        public void Construct(Transform heroTransform) => 
+        public void Construct(Transform heroTransform) =>
             _heroTransform = heroTransform;
 
         private void Awake()
@@ -48,7 +48,7 @@ namespace CodeBase.Enemy
             }
         }
 
-        public void EnableAttack() => 
+        public void EnableAttack() =>
             _attackIsActive = true;
 
         public void DisableAttack() =>

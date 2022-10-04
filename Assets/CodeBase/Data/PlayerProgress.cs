@@ -6,7 +6,7 @@ namespace CodeBase.Data
     public class PlayerProgress
     {
         public State HeroState;
-        
+
         public WorldData WorldData;
 
         public Stats Stats;

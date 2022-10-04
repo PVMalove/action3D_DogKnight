@@ -12,12 +12,12 @@ namespace CodeBase.Infrastructure.Services.Inputs
 
                 if (axis == Vector2.zero)
                     axis = UnityAxis();
-                
+
                 return axis;
             }
         }
 
-        private static Vector2 UnityAxis() => 
+        private static Vector2 UnityAxis() =>
             new Vector2(UnityEngine.Input.GetAxis(Horizontal), UnityEngine.Input.GetAxis(Vertical));
     }
 }

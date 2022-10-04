@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f949b4fd3044b77828887b7775422af, type: 3}
+  m_Name: LevelCells
+  m_EditorClassIdentifier: 
+  LevelKey: Test
+  EnemySpawners:
+  - ID: Test_f04abab7-00cb-48be-b48a-269ea5f0a3e7
+    EnemyTypeID: 0
+    Position: {x: 15.25, y: 0, z: 108.75}
+  - ID: Test_4b60ee28-3767-4982-8706-509d99860607
+    EnemyTypeID: 0
+    Position: {x: 9.5, y: 0, z: 108.75}
+  - ID: Test_d3b06086-447a-4d68-84f7-821938bc9923
+    EnemyTypeID: 10
+    Position: {x: 32.25, y: 0, z: 71}
+  - ID: Test_6b6e20fa-0a04-474a-ac84-43750d575c8c
+    EnemyTypeID: 10
+    Position: {x: 27, y: 0, z: 71}

@@ -21,7 +21,7 @@ namespace CodeBase.Enemy
         }
 
         private void TriggerExit(Collider obj)
-        {   
+        {
             _attack.DisableAttack();
         }
     }

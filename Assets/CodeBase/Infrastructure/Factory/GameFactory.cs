@@ -3,7 +3,10 @@ using System.Collections.Generic;
 using CodeBase.Enemy;
 using CodeBase.Infrastructure.AssetManagement;
 using CodeBase.Infrastructure.Services.PersistentProgress;
+using CodeBase.Infrastructure.Services.Randomizer;
+using CodeBase.Infrastructure.Services.StaticData;
 using CodeBase.Logic;
+using CodeBase.Logic.EnemySpawners;
 using CodeBase.StaticData;
 using CodeBase.UI;
 using UnityEngine;
@@ -14,29 +17,61 @@ namespace CodeBase.Infrastructure.Factory
 {
     public class GameFactory : IGameFactory
     {
-        private readonly IAssets _asset;
-        private readonly IStaticDataService _staticData;
-
         public List<ISavedProgressReader> ProgressReaders { get; } = new List<ISavedProgressReader>();
         public List<ISavedProgress> ProgressWriters { get; } = new List<ISavedProgress>();
 
+        private readonly IAssets _asset;
+        private readonly IStaticDataService _staticData;
+        private readonly IRandomService _randomService;
+        private readonly IPersistentProgressService _persistentProgressService;
         private GameObject HeroGameObject { get; set; }
 
-        public GameFactory(IAssets asset, IStaticDataService staticData)
+        public GameFactory(IAssets asset, IStaticDataService staticData, IRandomService randomService,
+            IPersistentProgressService persistentProgressService)
         {
             _asset = asset;
             _staticData = staticData;
+            _randomService = randomService;
+            _persistentProgressService = persistentProgressService;
         }
 
         public GameObject CreateHero(GameObject at)
         {
-            HeroGameObject = InstantiateRegistered(AsserPath.DogHeroPath, at.transform.position) ?? throw new ArgumentNullException("InstantiateRegistered(AsserPath.DogHeroPath, at.transform.position)");
+            HeroGameObject = InstantiateRegistered(AssetPath.DogHeroPath, at.transform.position) ??
+                             throw new ArgumentNullException(
+                                 "InstantiateRegistered(AsserPath.DogHeroPath, at.transform.position)");
             return HeroGameObject;
         }
-        
 
-        public GameObject CreateHub() =>
-            InstantiateRegistered(AsserPath.HudPath);
+        public GameObject CreateHub()
+        {
+            GameObject hud = InstantiateRegistered(AssetPath.HudPath);
+
+            hud.GetComponentInChildren<LootCounter>()
+                .Construct(_persistentProgressService.Progress.WorldData);
+
+            return hud;
+        }
+
+        public void CreateSpawner(Vector3 at, string spawnerID, EnemyTypeID enemyTypeID)
+        {
+            SpawnPoint spawner = InstantiateRegistered(AssetPath.Spawner, at)
+                .GetComponent<SpawnPoint>();
+
+            spawner.Construct(this);
+            spawner.ID = spawnerID;
+            spawner.EnemyType = enemyTypeID;
+        }
+
+        public LootPiece CreateLoot()
+        {
+            LootPiece lootPiece = InstantiateRegistered(AssetPath.Loot)
+                .GetComponent<LootPiece>();
+
+            lootPiece.Construct(_persistentProgressService.Progress.WorldData);
+
+            return lootPiece;
+        }
 
         public GameObject CreateEnemy(EnemyTypeID enemyType, Transform parent)
         {
@@ -46,26 +81,24 @@ namespace CodeBase.Infrastructure.Factory
             IHealth health = enemy.GetComponent<IHealth>();
             health.Current = enemyData.Hp;
             health.Max = enemyData.Hp;
-            
+
             enemy.GetComponent<ActorUI>().Construct(health);
             enemy.GetComponent<AgentMoveToHero>().Construct(HeroGameObject.transform);
             enemy.GetComponent<NavMeshAgent>().speed = enemyData.MoveSpeed;
+
+            LootSpawner lootSpawner = enemy.GetComponentInChildren<LootSpawner>();
+            lootSpawner.Construct(this, _randomService);
+            lootSpawner.SetLoot(enemyData.MinLoot, enemyData.MaxLoot);
 
             EnemyAttack attack = enemy.GetComponent<EnemyAttack>();
             attack.Construct(HeroGameObject.transform);
             attack.Damage = enemyData.Damage;
             attack.Cleavage = enemyData.Cleavage;
             attack.EffectiveDistance = enemyData.EffectiveDistance;
-            
-            enemy.GetComponent<RotateToHero>()?.Construct(HeroGameObject.transform);
-            
-            return enemy;
-        }
 
-        public void CleanUp()
-        {
-            ProgressReaders.Clear();
-            ProgressWriters.Clear();
+            enemy.GetComponent<RotateToHero>()?.Construct(HeroGameObject.transform);
+
+            return enemy;
         }
 
         public void Register(ISavedProgressReader progressReader)
@@ -94,6 +127,12 @@ namespace CodeBase.Infrastructure.Factory
         {
             foreach (ISavedProgressReader progressReader in gameObject.GetComponentsInChildren<ISavedProgressReader>())
                 Register(progressReader);
+        }
+
+        public void CleanUp()
+        {
+            ProgressReaders.Clear();
+            ProgressWriters.Clear();
         }
     }
 }

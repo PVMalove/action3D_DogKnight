@@ -15,7 +15,7 @@ namespace CodeBase.Enemy
 
         public event Action Happend;
 
-        private void Start() => 
+        private void Start() =>
             _enemyHealth.HealthChanged += HealthChanged;
 
         private void OnDestroy() =>
@@ -38,7 +38,7 @@ namespace CodeBase.Enemy
             Happend?.Invoke();
         }
 
-        private void SpawnDeathFX() => 
+        private void SpawnDeathFX() =>
             Instantiate(DeathFX, transform.position, Quaternion.identity);
 
         private IEnumerator DestroyTimer()

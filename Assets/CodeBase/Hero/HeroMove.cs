@@ -5,7 +5,6 @@ using CodeBase.Infrastructure.Services.PersistentProgress;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-
 namespace CodeBase.Hero
 {
     [RequireComponent(typeof(CharacterController))]

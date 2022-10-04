@@ -4,6 +4,6 @@ namespace CodeBase.StaticData
     {
         Guardian = 0,
         Turret = 5,
-        Ork = 10,
+        GruntOrc = 10,
     }
 }

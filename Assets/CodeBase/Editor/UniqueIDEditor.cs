@@ -1,4 +1,3 @@
-using System;
 using System.Linq;
 using CodeBase.Logic;
 using UnityEditor;
@@ -13,10 +12,10 @@ namespace CodeBase.Editor
         private void OnEnable()
         {
             var uniqueID = (UniqueID)target;
-            
-            if(isPrefab(uniqueID))
+
+            if (isPrefab(uniqueID))
                 return;
-            
+
             if (string.IsNullOrEmpty(uniqueID.ID))
                 Generate(uniqueID);
             else
@@ -28,12 +27,12 @@ namespace CodeBase.Editor
             }
         }
 
-        private bool isPrefab(UniqueID uniqueID) => 
+        private bool isPrefab(UniqueID uniqueID) =>
             uniqueID.gameObject.scene.rootCount == 0;
 
         private void Generate(UniqueID uniqueID)
         {
-            uniqueID.ID = $"{uniqueID.gameObject.scene.name}_{Guid.NewGuid().ToString()}";
+            uniqueID.GenerateId();
 
             if (!Application.isPlaying)
             {

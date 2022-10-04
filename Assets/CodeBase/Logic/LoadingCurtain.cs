@@ -18,17 +18,17 @@ namespace CodeBase.Logic
             _curtain.alpha = 1;
         }
 
-        public void Hide() => 
+        public void Hide() =>
             StartCoroutine(FadeIn());
 
         private IEnumerator FadeIn()
         {
-            while (_curtain.alpha >0)
+            while (_curtain.alpha > 0)
             {
                 _curtain.alpha -= 0.05f;
                 yield return new WaitForSeconds(0.01f);
             }
-            
+
             gameObject.SetActive(false);
         }
     }

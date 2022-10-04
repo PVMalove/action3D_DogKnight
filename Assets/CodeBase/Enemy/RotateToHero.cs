@@ -1,5 +1,3 @@
-using CodeBase.Infrastructure.Factory;
-using CodeBase.Infrastructure.Services;
 using UnityEngine;
 
 namespace CodeBase.Enemy
@@ -13,7 +11,7 @@ namespace CodeBase.Enemy
 
         public void Construct(Transform heroTransform) =>
             _heroTransform = heroTransform;
-        
+
         private void Update()
         {
             if (Initialized())
