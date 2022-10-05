@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8615732352342752327}
   - component: {fileID: 5725200403603302437}
   m_Layer: 5
-  m_Name: Title_back
+  m_Name: Title_background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -185,7 +185,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 0
+  m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -214,7 +214,7 @@ GameObject:
   - component: {fileID: 7241662168525691695}
   - component: {fileID: 506342615273412183}
   m_Layer: 5
-  m_Name: Button
+  m_Name: Close_button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -334,7 +334,7 @@ GameObject:
   - component: {fileID: 7412896929426504609}
   - component: {fileID: 8565888564375185166}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: Title_text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
