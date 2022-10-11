@@ -1,4 +1,6 @@
 using CodeBase.StaticData;
+using CodeBase.StaticData.Windows;
+using CodeBase.UI.Services.Windows;
 
 namespace CodeBase.Infrastructure.Services.StaticData
 {
@@ -7,5 +9,6 @@ namespace CodeBase.Infrastructure.Services.StaticData
         void Load();
         EnemyStaticData ForEnemy(EnemyTypeID typeID);
         LevelStaticData ForLevel(string sceneKey);
+        WindowConfig ForWindow(WindowID shop);
     }
 }

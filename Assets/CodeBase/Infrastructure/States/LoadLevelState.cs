@@ -4,7 +4,8 @@ using CodeBase.Infrastructure.Factory;
 using CodeBase.Infrastructure.Services.PersistentProgress;
 using CodeBase.Infrastructure.Services.StaticData;
 using CodeBase.Logic;
-using CodeBase.UI;
+using CodeBase.UI.Elements;
+using CodeBase.UI.Services.Factory;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -13,7 +14,6 @@ namespace CodeBase.Infrastructure.States
     public class LoadLevelState : IPayloadsState<string>
     {
         private const string StartingPointTeg = "StartingPoint";
-        private const string EnemySpawnerTag = "EnemySpawner";
 
         private readonly GameStateMachine _stateMachine;
         private readonly SceneLoader _sceneLoader;
@@ -21,9 +21,11 @@ namespace CodeBase.Infrastructure.States
         private readonly IGameFactory _gameFactory;
         private readonly IPersistentProgressService _progressService;
         private readonly IStaticDataService _staticData;
+        private readonly IUIFactory _uiFactory;
 
         public LoadLevelState(GameStateMachine stateMachine, SceneLoader sceneLoader, LoadingCurtain curtain,
-            IGameFactory gameFactory, IPersistentProgressService progressService, IStaticDataService staticDataService)
+            IGameFactory gameFactory, IPersistentProgressService progressService, IStaticDataService staticDataService,
+            IUIFactory uiFactory)
         {
             _stateMachine = stateMachine;
             _sceneLoader = sceneLoader;
@@ -31,6 +33,7 @@ namespace CodeBase.Infrastructure.States
             _gameFactory = gameFactory;
             _progressService = progressService;
             _staticData = staticDataService;
+            _uiFactory = uiFactory;
         }
 
         public void Enter(string payload)
@@ -45,6 +48,8 @@ namespace CodeBase.Infrastructure.States
 
         private void OnLoaded()
         {
+            InitUIRoot();
+            
             InitGameWorld();
             InformProgressReaders();
 
@@ -56,6 +61,9 @@ namespace CodeBase.Infrastructure.States
             foreach (ISavedProgressReader progressReader in _gameFactory.ProgressReaders)
                 progressReader.LoadProgress(_progressService.Progress);
         }
+
+        private void InitUIRoot() => 
+            _uiFactory.CreateUIRoot();
 
         private void InitGameWorld()
         {
