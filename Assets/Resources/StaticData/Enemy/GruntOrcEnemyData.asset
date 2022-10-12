@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: GruntOrcEnemyData
   m_EditorClassIdentifier: 
   EnemyTypeID: 10
-  Hp: 10
-  Damage: 10
+  Hp: 6
+  Damage: 14
   MinLoot: 10
   MaxLoot: 50
   EffectiveDistance: 0.5

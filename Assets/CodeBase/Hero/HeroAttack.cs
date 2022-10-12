@@ -5,6 +5,7 @@ using CodeBase.Infrastructure.Services.Inputs;
 using CodeBase.Infrastructure.Services.PersistentProgress;
 using CodeBase.Logic;
 using UnityEngine;
+using Debug = System.Diagnostics.Debug;
 
 namespace CodeBase.Hero
 {
@@ -29,7 +30,7 @@ namespace CodeBase.Hero
 
         private void Update()
         {
-            if (_input.IsAttackButtonUp() && !_animator.IsAttacking)
+            if (_input.IsAttackButtonDown() && !_animator.IsAttacking) 
                 _animator.PlayAttack();
         }
 

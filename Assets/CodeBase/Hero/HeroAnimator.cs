@@ -1,6 +1,8 @@
 using System;
 using CodeBase.Logic;
+using CodeBase.Logic.Animation;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace CodeBase.Hero
 {
@@ -8,19 +10,20 @@ namespace CodeBase.Hero
     {
         [SerializeField] private Animator _animator;
         [SerializeField] private CharacterController _characterController;
-
+        [SerializeField] private string[] _randomAttacks;
+        
         private static readonly int MoveHash = Animator.StringToHash("Walking");
-        private static readonly int IdleStateHash = Animator.StringToHash("Idle");
         private static readonly int AttackHash = Animator.StringToHash("AttackNormal");
         private static readonly int HitHash = Animator.StringToHash("Hit");
         private static readonly int DieHash = Animator.StringToHash("Die");
 
         private readonly int _idleStateHash = Animator.StringToHash("Idle");
-        private readonly int _idleStateFullHash = Animator.StringToHash("Base Layer.Idle");
         private readonly int _attackStateHash = Animator.StringToHash("Attack Normal");
         private readonly int _walkingStateHash = Animator.StringToHash("Run");
         private readonly int _deathStateHash = Animator.StringToHash("Die");
 
+        private bool _statusAttack;
+        
         public event Action<AnimatorState> StateEntered;
         public event Action<AnimatorState> StateExited;
 
@@ -30,9 +33,10 @@ namespace CodeBase.Hero
 
         private void Update()
         {
+            _statusAttack = _animator.GetBool("StatusAttack");
             _animator.SetFloat(MoveHash, _characterController.velocity.magnitude, 0.1f, Time.deltaTime);
         }
-
+        
         public void PlayHit()
         {
             _animator.SetTrigger(HitHash);
@@ -40,7 +44,12 @@ namespace CodeBase.Hero
 
         public void PlayAttack()
         {
-            _animator.SetTrigger(AttackHash);
+            if (_statusAttack)
+            {
+                int range = Random.Range(0, _randomAttacks.Length);
+                string targetAnim = _randomAttacks[range];
+                _animator.CrossFade(targetAnim, 0.1f);
+            }
         }
 
         public void PlayDeath()

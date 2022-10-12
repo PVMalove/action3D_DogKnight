@@ -6,6 +6,8 @@ namespace CodeBase.Infrastructure.Services.Inputs
     {   
         Vector2 Axis { get; }
 
-        bool IsAttackButtonUp();
+        bool IsAttackButtonDown();
+
+        bool IsSprintingButton();
     }
 }

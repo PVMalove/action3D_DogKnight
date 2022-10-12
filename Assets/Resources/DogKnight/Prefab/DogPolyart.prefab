@@ -1389,7 +1389,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6bb4380728cbb8b4282d77cbe813d90b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _movementSpeed: 5
+  _movementSpeed: 3.5
+  _sprintSpeed: 5
   _characterController: {fileID: 1883563673}
   _heroAnimator: {fileID: 7078774259211694203}
 --- !u!65 &1263538271771164854

@@ -10,7 +10,8 @@ namespace CodeBase.Hero
     [RequireComponent(typeof(CharacterController))]
     public class HeroMove : MonoBehaviour, ISavedProgress
     {
-        [SerializeField] private float _movementSpeed = 2.5f;
+        [SerializeField] private float _movementSpeed = 3.5f;
+        [SerializeField] private float _sprintSpeed = 5f;
         [SerializeField] private CharacterController _characterController;
         [SerializeField] private HeroAnimator _heroAnimator;
 
@@ -24,6 +25,7 @@ namespace CodeBase.Hero
         private void Update()
         {
             Vector3 movementVector = Vector3.zero;
+            float targetSpeed = _movementSpeed;
 
             if (_input.Axis.sqrMagnitude > Constants.Epsilon)
             {
@@ -35,8 +37,13 @@ namespace CodeBase.Hero
             }
 
             movementVector += Physics.gravity;
-
-            _characterController.Move(_movementSpeed * movementVector * Time.deltaTime);
+          
+            if (_input.IsSprintingButton())
+            {
+                targetSpeed = _sprintSpeed;
+            }
+            
+            _characterController.Move(targetSpeed * movementVector * Time.deltaTime);
         }
 
         public void UpdateProgress(PlayerProgress progress)
