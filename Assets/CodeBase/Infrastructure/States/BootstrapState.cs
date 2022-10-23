@@ -94,7 +94,7 @@ namespace CodeBase.Infrastructure.States
 
         private static IInputService InputService() =>
             Application.isEditor
-                ? (IInputService)new StandaloneInputService()
+                ? new StandaloneInputService()
                 : new MobileInputService();
     }
 }

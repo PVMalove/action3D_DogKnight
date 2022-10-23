@@ -11,7 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Test/Test.unity
     guid: 2f1773482bc37f54f8133f4d2c5c4024
-  - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
+  - enabled: 1
+    path: Assets/Scenes/LongHall/LongHall.unity
+    guid: 20e31018c2951174393e0b8cff1143cf
   m_configObjects: {}

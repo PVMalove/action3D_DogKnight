@@ -16,7 +16,7 @@ namespace CodeBase.Infrastructure.States
         private IExitState _activeState;
 
         public GameStateMachine(SceneLoader sceneLoader, LoadingCurtain curtain, AllServices services)
-        {
+        { 
             _states = new Dictionary<Type, IExitState>
             {
                 [typeof(BootstrapState)] = new BootstrapState(this, sceneLoader, services),

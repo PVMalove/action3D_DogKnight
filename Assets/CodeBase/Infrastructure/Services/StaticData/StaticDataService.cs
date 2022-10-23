@@ -38,8 +38,8 @@ namespace CodeBase.Infrastructure.Services.StaticData
                 ? staticData
                 : null;
 
-        public LevelStaticData ForLevel(string sceneKey) =>
-            _levels.TryGetValue(sceneKey, out LevelStaticData staticData)
+        public LevelStaticData ForLevel(string key) =>
+            _levels.TryGetValue(key, out LevelStaticData staticData)
                 ? staticData
                 : null;
 

@@ -39,9 +39,9 @@ namespace CodeBase.Infrastructure.Factory
             _windowService = windowService;
         }
 
-        public GameObject CreateHero(GameObject at)
+        public GameObject CreateHero(Vector3 at)
         {
-            HeroGameObject = InstantiateRegistered(AssetPath.DogHeroPath, at.transform.position) ??
+            HeroGameObject = InstantiateRegistered(AssetPath.DogHeroPath, at) ??
                              throw new ArgumentNullException(
                                  "InstantiateRegistered(AsserPath.DogHeroPath, at.transform.position)");
             return HeroGameObject;
