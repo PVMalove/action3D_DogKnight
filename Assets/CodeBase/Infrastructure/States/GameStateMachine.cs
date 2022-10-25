@@ -10,7 +10,7 @@ using CodeBase.UI.Services.Factory;
 
 namespace CodeBase.Infrastructure.States
 {
-    public class GameStateMachine
+    public class  GameStateMachine : IGameStateMachine
     {
         private Dictionary<Type, IExitState> _states;
         private IExitState _activeState;

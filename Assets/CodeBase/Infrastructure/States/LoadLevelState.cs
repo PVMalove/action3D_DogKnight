@@ -84,10 +84,8 @@ namespace CodeBase.Infrastructure.States
             }
         }
 
-        private GameObject InitHero(LevelStaticData levelData)
-        {
-            return _gameFactory.CreateHero(levelData.InitialHeroPosition);
-        }
+        private GameObject InitHero(LevelStaticData levelData) => 
+            _gameFactory.CreateHero(levelData.InitialHeroPosition);
 
         private void InitHub(GameObject hero)
         {
