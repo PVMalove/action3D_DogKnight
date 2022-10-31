@@ -1,5 +1,4 @@
 using System;
-using CodeBase.Logic;
 using CodeBase.Logic.Animation;
 using UnityEngine;
 using Random = UnityEngine.Random;

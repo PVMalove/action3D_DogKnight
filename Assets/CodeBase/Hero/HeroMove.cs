@@ -41,7 +41,7 @@ namespace CodeBase.Hero
             if (_input.IsSprintingButton()) 
                 targetSpeed = _sprintSpeed;
 
-          _characterController.Move(targetSpeed * movementVector * Time.deltaTime);
+            _characterController.Move(targetSpeed * movementVector * Time.deltaTime);
         }
 
         public void UpdateProgress(PlayerProgress progress)
