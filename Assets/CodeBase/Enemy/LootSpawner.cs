@@ -33,11 +33,11 @@ namespace CodeBase.Enemy
             _lootMax = max;
         }
 
-        private void SpawnLoot()
+        private async void SpawnLoot()
         {
             _enemyDeath.Happend -= SpawnLoot;
 
-            LootPiece lootPiece = _gameFactory.CreateLoot();
+            LootPiece lootPiece = await _gameFactory.CreateLoot();
             lootPiece.transform.position = transform.position;
             lootPiece.GetComponent<UniqueID>().GenerateId();
 

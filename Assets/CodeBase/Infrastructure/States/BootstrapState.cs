@@ -47,7 +47,7 @@ namespace CodeBase.Infrastructure.States
             
             _services.RegisterSingle<IRandomService>(new RandomService());
 
-            _services.RegisterSingle<IAssets>(new AssetProvider());
+            RegisterAssetProvider();
 
             _services.RegisterSingle<IPersistentProgressService>(
                 new PersistentProgressService());
@@ -71,6 +71,13 @@ namespace CodeBase.Infrastructure.States
             _services.RegisterSingle<ISaveLoadService>(
                 new SaveLoadService(_services.Single<IPersistentProgressService>(),
                     _services.Single<IGameFactory>()));
+        }
+
+        private void RegisterAssetProvider()
+        {
+            AssetProvider assetProvider = new AssetProvider();
+            _services.RegisterSingle<IAssets>(assetProvider);
+            assetProvider.Initialize();
         }
 
         private void RegisterAdsService()

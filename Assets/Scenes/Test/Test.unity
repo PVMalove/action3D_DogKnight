@@ -1819,6 +1819,10 @@ PrefabInstance:
       propertyPath: _distance
       value: -10
       objectReference: {fileID: 0}
+    - target: {fileID: 2752646373995598961, guid: 31cc6ffe5cd61a248990b4ef5a369b4b, type: 3}
+      propertyPath: _following
+      value: 
+      objectReference: {fileID: 3891851328337741764, guid: f2af1d089ee483740a11f7e9f9d93520, type: 3}
     - target: {fileID: 4921029017468189428, guid: 31cc6ffe5cd61a248990b4ef5a369b4b, type: 3}
       propertyPath: m_Name
       value: Camera

@@ -16,7 +16,23 @@ MonoBehaviour:
   m_Data:
     m_SerializedData: []
   m_GUID: 763d95b7cb437a6408bbb5a89b797070
-  m_SerializeEntries: []
+  m_SerializeEntries:
+  - m_GUID: b2696cefc228397488cffbf11063326b
+    m_Address: GruntOrc
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 6d2e80fc0a24620438161a5f14881578
+    m_Address: Guardian
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: a0ba9b70fa3fa5f4ab1e65e5fb945302
+    m_Address: Loot
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 8d9fc2535be64834a9df6b7e029fe11d
+    m_Address: Spawner
+    m_ReadOnly: 0
+    m_SerializedLabels: []
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 3ba3549e4f4786440aa8bd4a99baa3dc, type: 2}
   m_SchemaSet:

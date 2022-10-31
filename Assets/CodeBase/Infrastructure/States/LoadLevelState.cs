@@ -1,4 +1,5 @@
-﻿using CodeBase.CameraLogic;
+﻿using System.Threading.Tasks;
+using CodeBase.CameraLogic;
 using CodeBase.Hero;
 using CodeBase.Infrastructure.Factory;
 using CodeBase.Infrastructure.Services.PersistentProgress;
@@ -38,17 +39,18 @@ namespace CodeBase.Infrastructure.States
         {
             _curtain.Show();
             _gameFactory.CleanUp();
+            _gameFactory.WarmUp();
             _sceneLoader.Load(payload, OnLoaded);
         }
 
         public void Exit() =>
             _curtain.Hide();
 
-        private void OnLoaded()
+        private async void OnLoaded()
         {
             InitUIRoot();
 
-            InitGameWorld();
+            await InitGameWorld();
             InformProgressReaders();
 
             _stateMachine.Enter<GameLoopState>();
@@ -63,11 +65,11 @@ namespace CodeBase.Infrastructure.States
         private void InitUIRoot() =>
             _uiFactory.CreateUIRoot();
 
-        private void InitGameWorld()
+        private async Task InitGameWorld()
         {
             LevelStaticData levelData = LevelStaticData();
 
-            InitSpawners(levelData);
+            await InitSpawners(levelData);
 
             GameObject hero = InitHero(levelData);
 
@@ -76,15 +78,15 @@ namespace CodeBase.Infrastructure.States
             CameraFollow(hero);
         }
 
-        private void InitSpawners(LevelStaticData levelData)
+        private async Task InitSpawners(LevelStaticData levelData)
         {
             foreach (EnemySpawnerData spawnerData in levelData.EnemySpawners)
             {
-                _gameFactory.CreateSpawner(spawnerData.Position, spawnerData.ID, spawnerData.EnemyTypeID);
+                await _gameFactory.CreateSpawner(spawnerData.Position, spawnerData.ID, spawnerData.EnemyTypeID);
             }
         }
 
-        private GameObject InitHero(LevelStaticData levelData) => 
+        private GameObject InitHero(LevelStaticData levelData) =>
             _gameFactory.CreateHero(levelData.InitialHeroPosition);
 
         private void InitHub(GameObject hero)
@@ -94,7 +96,7 @@ namespace CodeBase.Infrastructure.States
                 .Construct(hero.GetComponent<HeroHealth>());
         }
 
-        private LevelStaticData LevelStaticData() => 
+        private LevelStaticData LevelStaticData() =>
             _staticData.ForLevel(SceneManager.GetActiveScene().name);
 
         private void CameraFollow(GameObject hero) =>
