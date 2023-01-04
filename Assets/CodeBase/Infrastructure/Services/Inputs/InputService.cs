@@ -11,7 +11,7 @@ namespace CodeBase.Infrastructure.Services.Inputs
         private const string ButtonSprint = "Sprint";
 
         public abstract Vector2 Axis { get; }
-
+        
         public bool IsAttackButtonDown() =>
             SimpleInput.GetButtonDown(ButtonAttack);
 

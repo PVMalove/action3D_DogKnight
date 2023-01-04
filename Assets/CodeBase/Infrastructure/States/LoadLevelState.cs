@@ -1,5 +1,8 @@
-﻿using System.Threading.Tasks;
+﻿using System.Collections.Generic;
+using System.Threading.Tasks;
 using CodeBase.CameraLogic;
+using CodeBase.Data;
+using CodeBase.Enemy;
 using CodeBase.Hero;
 using CodeBase.Infrastructure.Factory;
 using CodeBase.Infrastructure.Services.PersistentProgress;
@@ -71,6 +74,8 @@ namespace CodeBase.Infrastructure.States
 
             await InitSpawners(levelData);
 
+            await InitLootPieces();
+
             GameObject hero = InitHero(levelData);
 
             InitHub(hero);
@@ -83,6 +88,18 @@ namespace CodeBase.Infrastructure.States
             foreach (EnemySpawnerData spawnerData in levelData.EnemySpawners)
             {
                 await _gameFactory.CreateSpawner(spawnerData.Position, spawnerData.ID, spawnerData.EnemyTypeID);
+            }
+        }
+
+        private async Task InitLootPieces()
+        {
+            foreach (KeyValuePair<string, LootPieceData> item in _progressService.Progress.WorldData.LootData
+                         .LootPiecesOnScene.Dictionary)
+            {
+                LootPiece lootPiece = await _gameFactory.CreateLoot();
+                lootPiece.GetComponent<UniqueID>().ID = item.Key;
+                lootPiece.Initialize(item.Value.Loot);
+                lootPiece.transform.position = item.Value.Position.AsUnityVector();
             }
         }
 
